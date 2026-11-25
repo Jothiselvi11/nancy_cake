@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nancy Cake House · Custom Cakes &amp; Patisserie in Madhavaram, Chennai</title>
+<meta name="description" content="Nancy Cake House – elegant custom cakes freshly baked daily in Madhavaram, Chennai. Wedding cakes, birthday & theme cakes, red velvet, chocolate cakes and brownies.">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fcf7fb; --cream-2:#f5e9f4; --blush:#efd5ec; --rose:#b8338f; --rose-dk:#8f2473;
+    --cocoa:#3a1846; --cocoa-2:#5d3569; --gold:#d6a3cf; --ink:#2c1433; --muted:#86688a;
+    --radius:18px; --shadow:0 18px 40px -18px rgba(58,24,70,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  [id]{scroll-margin-top:84px}
+  body{font-family:"Jost",system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;font-weight:400}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,92%);margin-inline:auto}
+  h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--cocoa);line-height:1.1}
+  .script{font-family:"Great Vibes",cursive;color:var(--rose);font-weight:400}
+  .eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.78rem;color:var(--rose);font-weight:500}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.8rem;border-radius:999px;font-weight:500;letter-spacing:.04em;transition:.25s;border:1.5px solid transparent;cursor:pointer;font-family:inherit;font-size:1rem}
+  .btn-primary{background:var(--cocoa);color:var(--cream)}
+  .btn-primary:hover{background:var(--rose-dk);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--cocoa);color:var(--cocoa)}
+  .btn-ghost:hover{background:var(--cocoa);color:var(--cream)}
+  section{padding:6.5rem 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 3.5rem}
+  .section-head h2{font-size:clamp(2.3rem,4.5vw,3.4rem);margin:.4rem 0 .8rem}
+  .section-head p{color:var(--muted)}
+  .divider{width:70px;height:2px;background:var(--gold);margin:1rem auto 0;position:relative}
+  .divider::after{content:"❀";position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);background:var(--cream);padding:0 .5rem;color:var(--gold);font-size:.9rem}
+
+  /* Logo (falls back to a wordmark if images/logo.png is missing) */
+  .logo{display:flex;align-items:center;gap:.75rem}
+  .logo-img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);background:var(--cream-2)}
+  .logo-mark{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);display:none;place-items:center;font-family:"Great Vibes",cursive;font-size:1.9rem;color:var(--rose);background:var(--cream)}
+  .logo.no-img .logo-img{display:none}.logo.no-img .logo-mark{display:grid}
+  .logo-text{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.35rem;color:var(--cocoa);line-height:1}
+  .logo-text small{display:block;font-family:"Jost";font-weight:400;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-top:.25rem}
+
+  /* Nav */
+  header{position:fixed;inset:0 0 auto;z-index:50;transition:.3s}
+  header.scrolled{background:rgba(252,247,251,.92);backdrop-filter:blur(10px);box-shadow:0 6px 24px -14px rgba(58,24,70,.4)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+  .nav ul{display:flex;gap:2.2rem;list-style:none}
+  .nav ul a{font-size:.95rem;position:relative;color:var(--cocoa-2)}
+  .nav ul a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--rose);transition:.25s}
+  .nav ul a:hover::after{width:100%}
+  .nav .btn{padding:.65rem 1.3rem;font-size:.9rem}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;color:var(--cocoa);cursor:pointer}
+
+  /* Hero */
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:6rem;position:relative;overflow:hidden;
+    background:radial-gradient(circle at 85% 20%,var(--blush) 0,transparent 45%),radial-gradient(circle at 10% 90%,#f1def2 0,transparent 40%),var(--cream)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+  .hero h1{font-size:clamp(2.8rem,6vw,5rem);margin:.6rem 0 1.2rem;text-wrap:balance}
+  .hero h1 .script{display:block;font-size:.75em;margin-bottom:-.1em}
+  .hero p.lead{font-size:1.15rem;color:var(--cocoa-2);max-width:31rem;margin-bottom:2.2rem;font-weight:300}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-badges{display:flex;gap:2.2rem;margin-top:3rem;flex-wrap:wrap}
+  .hero-badges div{font-size:.85rem;color:var(--muted)}
+  .hero-badges strong{display:block;font-family:"Cormorant Garamond";font-size:1.7rem;color:var(--cocoa)}
+  .hero-visual{position:relative;aspect-ratio:1/1.05}
+  .hero-visual .main{position:absolute;inset:0 0 8% 10%;border-radius:220px 220px var(--radius) var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .hero-visual .small{position:absolute;left:0;bottom:0;width:42%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--cream);box-shadow:var(--shadow)}
+  .hero-visual .tag{position:absolute;right:-4%;top:12%;background:var(--cream);padding:1rem 1.3rem;border-radius:14px;box-shadow:var(--shadow);text-align:center}
+  .hero-visual .tag .script{font-size:1.7rem;line-height:1}
+  .hero-visual .tag span{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+  /* Photo slot with graceful fallback */
+  .ph{position:relative;width:100%;background:linear-gradient(135deg,var(--blush),#e2c3e4 60%,#d3a9d6)}
+  .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .hero-visual .ph,.about-photo .ph{height:100%}
+  .ph .ph-label{position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:1rem;font-family:"Cormorant Garamond";font-size:1.3rem;color:var(--cocoa);font-style:italic}
+  .ph .ph-label::before{content:"🎂";display:block;font-size:2.2rem;font-style:normal;margin-bottom:.3rem}
+  .ph.missing img{display:none}.ph.missing .ph-label{display:grid}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:5rem;align-items:center}
+  .about-photo{aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative}
+  .about-photo::after{content:"";position:absolute;inset:14px;border:1.5px solid rgba(255,255,255,.7);border-radius:12px;pointer-events:none}
+  .about h2{font-size:clamp(2.2rem,4vw,3.2rem);margin:.5rem 0 1.2rem}
+  .about p{color:var(--cocoa-2);margin-bottom:1rem;font-weight:300;font-size:1.05rem}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
+  .feature{background:#fff;border-radius:14px;padding:1.3rem 1rem;text-align:center;box-shadow:0 8px 22px -16px rgba(58,24,70,.35)}
+  .feature .ic{font-size:1.7rem}
+  .feature h4{font-family:"Cormorant Garamond";font-size:1.15rem;color:var(--cocoa);margin-top:.3rem}
+  .feature p{font-size:.82rem;color:var(--muted);margin:0}
+
+  /* Menu */
+  .menu{background:var(--cocoa);color:var(--cream);position:relative}
+  .menu .section-head h2{color:var(--cream)}
+  .menu .section-head p{color:#dcc4e0}
+  .menu .divider::after{background:var(--cocoa)}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  .menu-card{background:rgba(255,255,255,.04);border:1px solid rgba(214,163,207,.25);border-radius:var(--radius);overflow:hidden;transition:.35s;display:flex;flex-direction:column}
+  .menu-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+  .menu-card:hover .ph img{transform:scale(1.06)}
+  .menu-card .ph{aspect-ratio:4/3;flex:none;overflow:hidden}
+  .menu-card .body{padding:1.5rem 1.5rem 1.7rem;flex:1;display:flex;flex-direction:column}
+  .menu-card h3{color:var(--cream);font-size:1.6rem;min-height:2.3em;display:flex;align-items:flex-end}
+  .menu-card p{color:#dcc4e0;font-size:.93rem;font-weight:300;margin:.4rem 0 1rem;flex:1}
+  .menu-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.2rem}
+  .menu-card li{font-size:.75rem;padding:.28rem .7rem;border-radius:999px;background:rgba(214,163,207,.14);color:#eedaf0}
+  .menu-card .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;border-top:1px solid rgba(214,163,207,.2);padding-top:1rem}
+  .menu-card .price{font-family:"Cormorant Garamond";font-size:1.35rem;color:#fff;font-weight:600;line-height:1.2}
+  .menu-card .price small{font-family:"Jost";font-size:.72rem;color:#dcc4e0;font-weight:400;letter-spacing:.08em;text-transform:uppercase;display:block}
+  .menu-card .ask{color:var(--gold);font-size:.9rem;letter-spacing:.05em;font-weight:500}
+  .menu-card .ask:hover{color:#fff}
+  .pricelist{margin-top:4.5rem;background:var(--cream);color:var(--ink);border-radius:24px;padding:3rem clamp(1.2rem,4vw,3.5rem);position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+  .pricelist::before{content:"";position:absolute;inset:12px;border:1.5px solid var(--gold);border-radius:16px;pointer-events:none;opacity:.6}
+  .pricelist .pl-head{text-align:center;margin-bottom:2.2rem}
+  .pricelist .pl-logo{width:150px;margin:0 auto 1rem;mix-blend-mode:multiply}
+  .pricelist .pl-head h3{font-size:clamp(2rem,4vw,2.8rem)}
+  .pricelist .pl-head .script{font-size:1.8rem;display:block;margin-top:.2rem}
+  .pl-cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem 4rem}
+  .pl-col h4{display:flex;justify-content:space-between;font-family:"Cormorant Garamond";font-size:1.5rem;color:var(--rose-dk);border-bottom:1.5px solid var(--blush);padding-bottom:.5rem;margin-bottom:.6rem}
+  .pl-col h4 span{font-family:"Jost";font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);align-self:flex-end}
+  .pl-row{display:flex;align-items:baseline;gap:.5rem;padding:.5rem 0;cursor:pointer;border-radius:6px;transition:.2s}
+  .pl-row:hover{color:var(--rose-dk)}
+  .pl-row .n{font-weight:400}
+  .pl-row .n small{display:block;font-size:.75rem;color:var(--muted)}
+  .pl-row .dots{flex:1;border-bottom:1.5px dotted #d8b8d6;transform:translateY(-4px);min-width:1rem}
+  .pl-row .pr{font-family:"Cormorant Garamond";font-weight:700;font-size:1.2rem;color:var(--cocoa);white-space:nowrap}
+  .pl-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem 2rem;margin-top:2.2rem;padding-top:1.5rem;border-top:1.5px solid var(--blush);font-size:.92rem;color:var(--cocoa-2)}
+  .pl-foot b{color:var(--rose-dk);font-weight:500}
+  .menu-note{text-align:center;margin-top:3rem;color:#dcc4e0;font-size:.95rem}
+  .menu-note b{color:var(--gold);font-weight:500}
+
+  /* Gallery */
+  .filters{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-bottom:2.5rem}
+  .filters button{border:1.5px solid var(--blush);background:transparent;padding:.5rem 1.2rem;border-radius:999px;font-family:inherit;color:var(--cocoa-2);cursor:pointer;transition:.2s;font-size:.9rem}
+  .filters button.active,.filters button:hover{background:var(--rose);border-color:var(--rose);color:#fff}
+  .gallery{columns:4 240px;column-gap:1.1rem}
+  .g-item{break-inside:avoid;margin-bottom:1.1rem;border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in;box-shadow:0 10px 26px -18px rgba(58,24,70,.45)}
+  .g-item .ph{aspect-ratio:var(--ar,1)}
+  .g-item:hover img{transform:scale(1.05)}
+  .g-item .cap{position:absolute;inset:auto 0 0;padding:1.6rem 1rem .8rem;background:linear-gradient(transparent,rgba(44,20,51,.75));color:#fff;font-family:"Cormorant Garamond";font-size:1.15rem;opacity:0;transition:.3s}
+  .g-item:hover .cap{opacity:1}
+  .g-item.hide{display:none}
+  .g-item:has(.ph.missing) .cap{display:none}
+
+  /* Instagram */
+  .insta{background:var(--cream-2)}
+  .insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .ig{background:#fff;border:1px solid #e6dbe8;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 14px 30px -22px rgba(58,24,70,.45);color:#262626;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;transition:.25s}
+  .ig:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(58,24,70,.55)}
+  .ig-top{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem}
+  .ig-top img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid var(--rose)}
+  .ig-top b{font-size:.88rem;font-weight:600;flex:1;line-height:1.2}
+  .ig-top b small{display:block;font-weight:400;color:#8e8e8e;font-size:.75rem}
+  .ig-top span{background:#0095f6;color:#fff;font-size:.78rem;font-weight:600;padding:.35rem .8rem;border-radius:8px}
+  .ig .ph{aspect-ratio:1;overflow:hidden}
+  .ig:hover .ph img{transform:scale(1.04)}
+  .ig-cap{padding:.75rem .9rem 0;font-size:.88rem;line-height:1.4}
+  .ig-cap a,.ig-more{color:#385185;font-weight:600;font-size:.88rem}
+  .ig-more{display:block;padding:.5rem .9rem .75rem;border-bottom:1px solid #efefef}
+  .ig-bar{display:flex;align-items:center;gap:1rem;padding:.65rem .9rem .3rem}
+  .ig-bar svg{width:24px;height:24px;fill:none;stroke:#262626;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+  .ig-bar .save{margin-left:auto}
+  .ig-likes{padding:0 .9rem;font-weight:600;font-size:.88rem}
+  .ig-cmt{display:flex;align-items:center;justify-content:space-between;padding:.7rem .9rem;color:#8e8e8e;font-size:.88rem;margin-top:auto}
+  .ig-cmt svg{width:22px;height:22px;fill:#262626}
+  .insta-cta{text-align:center;margin-top:2.5rem}
+
+  /* Process */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:s}
+  .step{text-align:center;padding:2rem 1.2rem;border-radius:var(--radius);background:#fff;position:relative;box-shadow:0 10px 26px -20px rgba(58,24,70,.5)}
+  .step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:"Cormorant Garamond";font-size:2.8rem;color:var(--blush);font-weight:700;display:block;line-height:1}
+  .step h4{font-family:"Cormorant Garamond";font-size:1.35rem;color:var(--cocoa);margin:.4rem 0}
+  .step p{font-size:.9rem;color:var(--muted)}
+
+  /* Order */
+  .order{background:linear-gradient(135deg,var(--blush),#f6e6f4)}
+  .order-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:start}
+  .order h2{font-size:clamp(2.2rem,4vw,3.2rem);margin:.5rem 0 1rem}
+  .order .info p{color:var(--cocoa-2);font-weight:300}
+  .contact-list{list-style:none;margin:2rem 0;display:grid;gap:1.1rem}
+  .contact-list li{display:flex;gap:1rem;align-items:flex-start}
+  .contact-list .ic{width:44px;height:44px;flex:none;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-size:1.1rem}
+  .contact-list b{display:block;font-weight:500;color:var(--cocoa)}
+  .contact-list span,.contact-list a{color:var(--cocoa-2);font-size:.95rem}
+  .contact-list a:hover{color:var(--rose-dk)}
+  form{background:var(--cream);padding:2.4rem;border-radius:var(--radius);box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.2rem}
+  form h3{grid-column:1/-1;font-size:1.9rem}
+  form .full{grid-column:1/-1}
+  label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem}
+  input,select,textarea{width:100%;padding:.85rem 1rem;border:1.5px solid #e8d3e6;border-radius:10px;font-family:inherit;font-size:.98rem;background:#fff;color:var(--ink);transition:.2s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--rose)}
+  textarea{resize:vertical;min-height:100px}
+  form .btn{justify-content:center;width:100%}
+  form small{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.8rem}
+
+  .map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);height:380px;margin-top:4rem}
+  .map iframe{width:100%;height:100%;border:0}
+
+  footer{background:var(--cocoa);color:#dcc4e0;padding:4rem 0 2rem;text-align:center}
+  footer .logo{justify-content:center;margin-bottom:1rem}
+  footer .f-logo{width:170px;margin:0 auto 1.2rem;background:#fff;border-radius:20px;padding:10px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+  footer .logo-text{color:var(--cream)}
+  footer .logo-mark{background:var(--cocoa)}
+  footer .tagline{font-family:"Great Vibes";font-size:1.8rem;color:var(--gold)}
+  .socials{display:flex;justify-content:center;gap:1rem;margin:1.5rem 0}
+  .socials a{width:44px;height:44px;border-radius:50%;border:1px solid rgba(214,163,207,.4);display:grid;place-items:center;transition:.2s}
+  .socials a:hover{background:var(--gold);color:var(--cocoa)}
+  .socials svg{width:20px;height:20px;fill:currentColor}
+  footer .copy{font-size:.82rem;opacity:.7;margin-top:2rem;border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem}
+
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 25px -8px rgba(0,0,0,.4);transition:.25s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .lightbox{position:fixed;inset:0;background:rgba(30,12,36,.92);display:none;place-items:center;z-index:100;padding:2rem;cursor:zoom-out}
+  .lightbox.open{display:grid}
+  .lightbox img{max-height:86vh;border-radius:12px}
+  .lightbox p{color:#fff;text-align:center;margin-top:1rem;font-family:"Cormorant Garamond";font-size:1.4rem}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  body{overflow-x:hidden}
+  @media (max-width:960px){
+    header{background:rgba(252,247,251,.96);backdrop-filter:blur(10px)}
+    .hero{min-height:auto;padding:7.5rem 0 4rem}
+    .hero-grid>div:first-child{text-align:center}
+    .hero p.lead{margin-inline:auto}
+    .hero-ctas,.hero-badges{justify-content:center}
+    .hero-grid,.about-grid,.order-grid{grid-template-columns:1fr;gap:3rem}
+    .about-photo{max-width:480px;margin:0 auto;width:100%}
+    .hero-visual{max-width:460px;margin:0 auto;width:100%}
+    .menu-grid,.insta-grid{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .nav{position:relative}
+    .nav ul{position:absolute;top:100%;left:-4vw;right:-4vw;flex-direction:column;background:var(--cream);padding:1.5rem 2rem;gap:1.2rem;box-shadow:0 20px 30px -20px rgba(0,0,0,.3);transform:translateY(-130%);transition:.35s}
+    .nav ul.open{transform:none}
+    .burger{display:block}
+    .nav .btn{display:none}
+  }
+  @media (max-width:620px){
+    section{padding:4rem 0}
+    .section-head{margin-bottom:2.5rem}
+    .menu-grid,.steps{grid-template-columns:1fr}
+    .menu-card h3{min-height:0}
+    .pl-cols{grid-template-columns:1fr;gap:1.5rem}
+    .pricelist{padding:2.2rem 1.3rem;margin-top:3rem}
+    .pl-foot{flex-direction:column;text-align:center;gap:.4rem}
+    .features{grid-template-columns:repeat(3,1fr);gap:.6rem}
+    .feature{padding:1rem .5rem}.feature p{display:none}
+    .insta-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto;gap:1.2rem}
+    .gallery{columns:2;column-gap:.7rem}.g-item{margin-bottom:.7rem}
+    .g-item .cap{opacity:1;font-size:.95rem;padding:1.2rem .6rem .5rem}
+    .filters{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:.4rem;scrollbar-width:none}
+    .filters button{flex:none}
+    form{grid-template-columns:1fr;padding:1.5rem}
+    .hero-visual .tag{right:0;padding:.7rem 1rem}
+    .hero-badges{gap:1.4rem}.hero-badges strong{font-size:1.4rem}
+    .hero-ctas .btn{width:100%;justify-content:center}
+    .logo-img,.logo-mark{width:44px;height:44px}.logo-text{font-size:1.15rem}
+    .map{height:280px;margin-top:3rem}
+    .contact-list a,.contact-list span{word-break:break-word}
+    .wa-float{width:52px;height:52px;right:16px;bottom:16px}
+    .step{padding:1.5rem 1rem}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="wrap nav">
+    <a href="#home" class="logo">
+      <img class="logo-img" src="images/logo.png" alt="Nancy Cake House logo" onerror="this.parentElement.classList.add('no-img')">
+      <span class="logo-mark">N</span>
+      <span class="logo-text">Nancy Cake House<small>Patisserie · Cakes</small></span>
+    </a>
+    <ul id="menuList">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Our Cakes</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#order">Contact</a></li>
+    </ul>
+    <a href="#order" class="btn btn-primary">Order a Cake</a>
+    <button class="burger" aria-label="Open menu" onclick="document.getElementById('menuList').classList.toggle('open')">☰</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Patisserie · Madhavaram, Chennai</span>
+      <h1><span class="script">Baked with love,</span>fresh every single day</h1>
+      <p class="lead">Designer birthday cakes, dreamy wedding tiers, kids' theme cakes and rich chocolate bakes, all handcrafted at Nancy Cake House for your birthdays, weddings and everything in between.</p>
+      <div class="hero-ctas">
+        <a href="#order" class="btn btn-primary">Order Your Cake →</a>
+        <a href="#gallery" class="btn btn-ghost">See Our Creations</a>
+      </div>
+      <div class="hero-badges">
+        <div><strong>Hand</strong>crafted with care</div>
+        <div><strong>Custom</strong>Designs for you</div>
+        <div><strong>Daily</strong>Freshly baked</div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="main"><div class="ph"><img src="images/hero.jpg" alt="Lavender floral celebration cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Signature celebration cake</span></div></div>
+      <div class="small"><div class="ph"><img src="images/hero-small.jpg" alt="Chocolate drip cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Chocolate cake</span></div></div>
+      <div class="tag"><div class="script">Bespoke</div><span>Cakes to order</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal"><div class="ph"><img src="images/about.jpg" alt="Piping buttercream onto a cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Baked with love</span></div></div>
+    <div class="reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2>A little cake house, <em>a whole lot of heart</em></h2>
+      <p>Nancy Cake House is a patisserie and cake shop in Madhavaram, Chennai, built on one simple idea: every celebration deserves a cake that's as beautiful as it is delicious.</p>
+      <p>Every order is made from scratch, by hand and in small batches with good ingredients. Your cake is designed around your theme, your flavour and your moment, and baked fresh for your day.</p>
+      <div class="features">
+        <div class="feature"><div class="ic">🧁</div><h4>Handcrafted</h4><p>Small-batch, made by hand</p></div>
+        <div class="feature"><div class="ic">🎨</div><h4>Custom</h4><p>Any theme, any idea</p></div>
+        <div class="feature"><div class="ic">🌸</div><h4>Fresh</h4><p>Baked fresh to order</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Bake</span>
+      <h2>Our Menu</h2>
+      <p>Pick your flavour from our price list and tell us your size and theme. There's no limit to customisation.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="menu-grid">
+      <article class="menu-card reveal">
+        <div class="ph"><img src="images/menu-wedding.jpg" alt="Floral tiered wedding cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Wedding cakes</span></div>
+        <div class="body">
+          <h3>Wedding &amp; Engagement Cakes</h3>
+          <p>Tiered, elegant showpieces with florals, pearls and delicate finishes, made for your big day.</p>
+          <ul><li>Tiered</li><li>Floral</li><li>Fondant / Cream</li></ul>
+          <div class="foot"><span class="price" data-price="Wedding Cake"></span><a class="ask" href="#order" data-item="Wedding Cake">Order →</a></div>
+        </div>
+      </article>
+      <article class="menu-card reveal">
+        <div class="ph"><img src="images/menu-birthday.jpg" alt="Berry cream celebration cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Birthday cakes</span></div>
+        <div class="body">
+          <h3>Birthday &amp; Celebration Cakes</h3>
+          <p>Pretty designer cakes for birthdays, anniversaries and every little milestone worth celebrating.</p>
+          <ul><li>Anniversary</li><li>Heart cakes</li><li>Photo cakes</li></ul>
+          <div class="foot"><span class="price" data-price="Birthday Cake"></span><a class="ask" href="#order" data-item="Birthday Cake">Order →</a></div>
+        </div>
+      </article>
+      <article class="menu-card reveal">
+        <div class="ph"><img src="images/menu-kids.jpg" alt="Fun sprinkle drip cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Kids theme cakes</span></div>
+        <div class="body">
+          <h3>Kids' Theme Cakes</h3>
+          <p>Superheroes, cartoon favourites and gaming characters. Show us the theme and we'll bring it to life.</p>
+          <ul><li>Superhero</li><li>Cartoon</li><li>Toppers</li></ul>
+          <div class="foot"><span class="price" data-price="Kids Theme Cake"></span><a class="ask" href="#order" data-item="Kids Theme Cake">Order →</a></div>
+        </div>
+      </article>
+      <article class="menu-card reveal">
+        <div class="ph"><img src="images/menu-chocolate.jpg" alt="Black forest chocolate cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Chocolate cakes</span></div>
+        <div class="body">
+          <h3>Chocolate Indulgence</h3>
+          <p>Rich chocolate truffle, mousse and ganache cakes for true chocolate lovers.</p>
+          <ul><li>Truffle</li><li>Mousse</li><li>Ganache</li></ul>
+          <div class="foot"><span class="price" data-price="Chocolate Cake"></span><a class="ask" href="#order" data-item="Chocolate Cake">Order →</a></div>
+        </div>
+      </article>
+      <article class="menu-card reveal">
+        <div class="ph"><img src="images/menu-redvelvet.jpg" alt="Red velvet cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Red velvet</span></div>
+        <div class="body">
+          <h3>Red Velvet &amp; Cream Cakes</h3>
+          <p>Classic red velvet (with or without cheese frosting), plus fruity and nutty cream cakes from rose milk to Lotus Biscoff.</p>
+          <ul><li>Red Velvet</li><li>Rose Milk</li><li>Biscoff</li></ul>
+          <div class="foot"><span class="price" data-price="Red Velvet & Cream"></span><a class="ask" href="#order" data-item="Birthday Cake">Order →</a></div>
+        </div>
+      </article>
+      <article class="menu-card reveal">
+        <div class="ph"><img src="images/menu-brownies.jpg" alt="Fudge brownie cake" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">Brownies &amp; cookies</span></div>
+        <div class="body">
+          <h3>Brownies &amp; Cookies</h3>
+          <p>Fudgy brownies and freshly baked cookies, including festive gingerbread. They make great gift boxes too.</p>
+          <ul><li>Brownies</li><li>Cookies</li><li>Gift boxes</li></ul>
+          <div class="foot"><span class="price" data-price="Brownies & Cookies"></span><a class="ask" href="#order" data-item="Brownies & Cookies">Order →</a></div>
+        </div>
+      </article>
+    </div>
+    <div class="pricelist reveal" id="prices">
+      <div class="pl-head">
+        <img class="pl-logo" src="images/logo-full.png" alt="Nancy Cake House · Baked with love">
+        <span class="eyebrow">Price List</span>
+        <h3>Cake Menu</h3>
+      </div>
+      <div class="pl-cols" id="plCols"></div>
+      <div class="pl-foot">
+        <span>🎨 <b>No limits to customisation</b></span>
+        <span>🚚 <b>Free delivery</b> (limited area only)</span>
+        <span>📞 9942133578 · 9043482573</span>
+      </div>
+    </div>
+    <p class="menu-note reveal">Prices shown are for ½ kg. Wedding, theme and designer cakes are priced on request. <b>Tap any cake</b> to order it.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Baked So Far</span>
+      <h2>Our Creations</h2>
+      <p>A few of the cakes we've had the joy of baking for our lovely customers.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="filters">
+      <button class="active" data-f="all">All</button>
+      <button data-f="love">Wedding &amp; Love</button>
+      <button data-f="celebration">Celebration</button>
+      <button data-f="kids">Kids</button>
+      <button data-f="chocolate">Chocolate</button>
+    </div>
+    <div class="gallery" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM (official embeds of real posts) -->
+<section class="insta" id="instagram">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">@_nancy_cakehouse</span>
+      <h2>Fresh from Instagram</h2>
+      <p>Follow along for new creations every week, and DM us to order your own.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="insta-grid" id="instaGrid"></div>
+    <div class="insta-cta"><a class="btn btn-primary" href="https://www.instagram.com/_nancy_cakehouse/" target="_blank" rel="noopener">Follow us on Instagram</a></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How to Order</span>
+      <h2>Your cake in 4 sweet steps</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h4>Share your idea</h4><p>Send us your theme, a reference photo, or simply describe it.</p></div>
+      <div class="step reveal"><h4>Pick the details</h4><p>Choose the flavour, size and any message or topper.</p></div>
+      <div class="step reveal"><h4>Confirm</h4><p>We'll share a quote and lock in your date.</p></div>
+      <div class="step reveal"><h4>Enjoy!</h4><p>Collect your freshly baked cake and celebrate. 🎉</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER / CONTACT -->
+<section class="order" id="order">
+  <div class="wrap">
+    <div class="order-grid">
+      <div class="info reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Let's bake something <em>beautiful</em></h2>
+        <p>Fill in the form and it will open WhatsApp with your order details ready to send. You can also call us or DM us on Instagram.</p>
+        <ul class="contact-list">
+          <li><span class="ic">📍</span><div><b>Visit / Pickup</b><a href="https://maps.app.goo.gl/drPqEAknJwY6oKq17" target="_blank" rel="noopener">154, J P Nagar 3rd Street, Madhavaram, Chennai, Tamil Nadu</a></div></li>
+          <li><span class="ic">📞</span><div><b>Call / WhatsApp</b><a href="tel:+919942133578">+91 99421 33578</a><br><a href="tel:+919043482573">+91 90434 82573</a></div></li>
+          <li><span class="ic">✉️</span><div><b>Email</b><a href="mailto:sjerlinnancy@gmail.com">sjerlinnancy@gmail.com</a></div></li>
+          <li><span class="ic">🕙</span><div><b>Hours</b><span>Open daily · closes at 10:00 PM</span></div></li>
+          <li><span class="ic">🚚</span><div><b>Delivery</b><span>Free delivery in nearby areas (limited area only)</span></div></li>
+          <li><span class="ic">📩</span><div><b>Instagram</b><a href="https://www.instagram.com/_nancy_cakehouse/" target="_blank" rel="noopener">@_nancy_cakehouse</a></div></li>
+        </ul>
+      </div>
+      <form id="orderForm" class="reveal">
+        <h3>Place an Order</h3>
+        <div><label for="name">Your Name</label><input id="name" required placeholder="Your name"></div>
+        <div><label for="phone">Phone</label><input id="phone" type="tel" required placeholder="+91"></div>
+        <div><label for="type">Cake Type</label>
+          <select id="type">
+            <option>Birthday Cake</option><option>Wedding Cake</option><option>Kids Theme Cake</option>
+            <option>Chocolate Cake</option><option>Cheesecake</option><option>Brownies &amp; Cookies</option><option>Other</option>
+          </select></div>
+        <div><label for="size">Size / Weight</label>
+          <select id="size"><option>½ kg</option><option>1 kg</option><option>1.5 kg</option><option>2 kg</option><option>3 kg+</option><option>Not sure</option></select></div>
+        <div><label for="date">Needed On</label><input id="date" type="date" required></div>
+        <div><label for="flavour">Flavour</label><select id="flavour"></select></div>
+        <div class="full" id="priceHint" style="display:none;background:#fff;border:1.5px dashed var(--gold);border-radius:10px;padding:.7rem 1rem;color:var(--cocoa);font-size:.95rem"></div>
+        <div class="full"><label for="msg">Design / Theme / Message on cake</label><textarea id="msg" placeholder="Tell us your idea…"></textarea></div>
+        <div class="full"><button class="btn btn-primary" type="submit">Send via WhatsApp →</button></div>
+        <small>We'll reply with a quote and confirm your order.</small>
+      </form>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Nancy Cake House location"
+        src="https://www.google.com/maps?q=154,+J+P+Nagar+3rd+Street,+Madhavaram,+Chennai,+Tamil+Nadu&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#home" class="logo">
+      <img class="logo-img" src="images/logo.png" alt="Nancy Cake House logo" onerror="this.parentElement.classList.add('no-img')">
+      <span class="logo-mark">N</span>
+      <span class="logo-text">Nancy Cake House</span>
+    </a>
+    <img class="f-logo" src="images/logo-full.png" alt="Nancy Cake House logo">
+    <div class="tagline">Bespoke cakes · Baked with love</div>
+    <div class="socials">
+      <a href="https://www.instagram.com/_nancy_cakehouse/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg></a>
+      <a href="https://wa.me/919942133578" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1112 21.8zM12 0a12 12 0 00-10.3 18L0 24l6.2-1.6A12 12 0 1012 0z"/></svg></a>
+      <a href="mailto:sjerlinnancy@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M2 5a2 2 0 012-2h16a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm2.4 0L12 10.8 19.6 5H4.4zM20 7l-8 6.1L4 7v12h16V7z"/></svg></a>
+      <a href="tel:+919942133578" aria-label="Call"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+    </div>
+    <p>154, J P Nagar 3rd Street, Madhavaram, Chennai · +91 99421 33578 · +91 90434 82573 · <a href="mailto:sjerlinnancy@gmail.com">sjerlinnancy@gmail.com</a></p>
+    <p class="copy">© <span id="yr"></span> Nancy Cake House. All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/919942133578?text=Hi%20Nancy%20Cake%20House!%20I%27d%20like%20to%20order%20a%20cake." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1112 21.8zM12 0a12 12 0 00-10.3 18L0 24l6.2-1.6A12 12 0 1012 0z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')"><div><img id="lbImg" alt=""><p id="lbCap"></p></div></div>
+
+<script>
+  /* ---------- EDIT HERE: gallery photos (put files in /images) ---------- */
+  const CAKES = [
+    {src:"images/cake-1.jpg", cap:"Two-tier wedding cake with gold hearts", cat:"love", ar:"582/749"},
+    {src:"images/cake-2.jpg", cap:"Red velvet heart anniversary cake", cat:"love", ar:"559/688"},
+    {src:"images/cake-3.jpg", cap:"\"Lovable wife\" heart cake & cupcakes", cat:"love", ar:"677/677"},
+    {src:"images/cake-4.jpg", cap:"Pastel butterfly two-tier cake", cat:"celebration", ar:"652/670"},
+    {src:"images/cake-5.jpg", cap:"Lavender buttercream cake for Mum", cat:"celebration", ar:"753/634"},
+    {src:"images/cake-6.jpg", cap:"Floral \"love you\" mini tier cake", cat:"celebration", ar:"556/561"},
+    {src:"images/cake-7.jpg", cap:"Butterfly birthday cake", cat:"celebration", ar:"493/552"},
+    {src:"images/cake-8.jpg", cap:"Lavender garden painted cake", cat:"celebration", ar:"467/562"},
+    {src:"images/cake-9.jpg", cap:"Red velvet with gold butterflies", cat:"celebration", ar:"501/457"},
+    {src:"images/cake-10.jpg", cap:"Enchanted forest tree-stump cake", cat:"celebration", ar:"544/627"},
+    {src:"images/cake-11.jpg", cap:"Birthday cake with rose cupcakes", cat:"celebration", ar:"357/526"},
+    {src:"images/cake-12.jpg", cap:"Retirement cake with fondant figure", cat:"celebration", ar:"558/636"},
+    {src:"images/cake-13.jpg", cap:"Pink princess doll cake", cat:"kids", ar:"498/688"},
+    {src:"images/cake-14.jpg", cap:"Cinderella doll cake", cat:"kids", ar:"437/623"},
+    {src:"images/cake-15.jpg", cap:"Frozen theme cake", cat:"kids", ar:"641/711"},
+    {src:"images/cake-16.jpg", cap:"Paw Patrol two-tier cake", cat:"kids", ar:"472/714"},
+    {src:"images/cake-17.jpg", cap:"Cars & clouds two-tier cake", cat:"kids", ar:"517/672"},
+    {src:"images/cake-18.jpg", cap:"Spider-Man two-tier cake", cat:"kids", ar:"331/473"},
+    {src:"images/cake-19.jpg", cap:"3D racing car cake", cat:"kids", ar:"714/542"},
+    {src:"images/cake-20.jpg", cap:"Jungle safari photo cake", cat:"kids", ar:"882/602"},
+    {src:"images/cake-21.jpg", cap:"Anime theme chocolate cake", cat:"kids", ar:"470/523"},
+    {src:"images/cake-22.jpg", cap:"Chocolate overload cake", cat:"chocolate", ar:"490/700"},
+    {src:"images/cake-23.jpg", cap:"Chocolate heart drip cake", cat:"chocolate", ar:"614/519"},
+    {src:"images/cake-24.jpg", cap:"Two-layer fudge brownie cake", cat:"chocolate", ar:"844/591"},
+  ];
+  /* ---------- EDIT HERE: Instagram section photos (tiles link to the profile) ---------- */
+  const INSTA = [
+    {img:"images/insta-1.jpg", cap:"3D car cake, every detail piped by hand 🚗", likes:24},
+    {img:"images/insta-2.jpg", cap:"Rainbow & butterflies for a first birthday 🌈🦋", likes:31},
+    {img:"images/insta-3.jpg", cap:"Our pretty-in-pink princess doll cake 👑", likes:28},
+    {img:"images/insta-4.jpg", cap:"Birthday cake with rose cupcakes for Appa 🌹", likes:19},
+    {img:"images/insta-5.jpg", cap:"A Cinderella gown made of buttercream ✨", likes:35},
+    {img:"images/insta-6.jpg", cap:"Lavender buttercream cake for Mum 💜", likes:22},
+  ];
+
+  const g = document.getElementById('galleryGrid');
+  const groups = {}; CAKES.forEach(c => (groups[c.cat] ??= []).push(c));
+  const mixed = []; for (let i = 0; mixed.length < CAKES.length; i++) Object.values(groups).forEach(gr => gr[i] && mixed.push(gr[i]));
+  g.innerHTML = mixed.map(c => `
+    <figure class="g-item reveal" data-cat="${c.cat}" style="--ar:${c.ar}">
+      <div class="ph"><img loading="lazy" src="${c.src}" alt="${c.cap}" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">${c.cap}</span></div>
+      <figcaption class="cap">${c.cap}</figcaption>
+    </figure>`).join('');
+
+  document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.filters button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.g-item').forEach(i => i.classList.toggle('hide', b.dataset.f !== 'all' && i.dataset.cat !== b.dataset.f));
+  });
+
+  g.addEventListener('click', e => {
+    const item = e.target.closest('.g-item'); if (!item) return;
+    const img = item.querySelector('img'); if (item.querySelector('.ph.missing')) return;
+    document.getElementById('lbImg').src = img.src;
+    document.getElementById('lbCap').textContent = img.alt;
+    document.getElementById('lightbox').classList.add('open');
+  });
+
+  const IG = "https://www.instagram.com/_nancy_cakehouse/";
+  const ico = {
+    heart:'<svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.3-9.3C1.4 7.6 3.6 4 7.1 4c2 0 3.4 1.1 4.9 3 1.5-1.9 2.9-3 4.9-3 3.5 0 5.7 3.6 4.4 7.2-1.8 4.7-9.3 9.3-9.3 9.3z"/></svg>',
+    cmt:'<svg viewBox="0 0 24 24"><path d="M20.7 16.4A9 9 0 1 0 17.6 19.6L21.5 21l-.8-4.6z"/></svg>',
+    share:'<svg viewBox="0 0 24 24"><path d="M22 3 9.2 10.1M22 3l-7.2 18-3.6-8.6L2.5 9.4 22 3z"/></svg>',
+    save:'<svg viewBox="0 0 24 24"><path d="M19 21l-7-5.5L5 21V3h14v18z"/></svg>',
+    ig:'<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg>'
+  };
+  document.getElementById('instaGrid').innerHTML = INSTA.map(r => `
+    <a class="ig reveal" href="${IG}" target="_blank" rel="noopener" aria-label="${r.cap} on Instagram">
+      <div class="ig-top"><img src="images/logo.png" alt=""><b>_nancy_cakehouse<small>Madhavaram, Chennai</small></b><span>View profile</span></div>
+      <div class="ph"><img loading="lazy" src="${r.img}" alt="${r.cap}" onerror="this.parentElement.classList.add('missing')"><span class="ph-label">${r.cap}</span></div>
+      <div class="ig-bar">${ico.heart}${ico.cmt}${ico.share}<span class="save">${ico.save}</span></div>
+      <div class="ig-likes">${r.likes} likes</div>
+      <div class="ig-cap"><b>_nancy_cakehouse</b> ${r.cap}</div>
+      <span class="ig-more">View more on Instagram</span>
+      <div class="ig-cmt">Add a comment…${ico.ig}</div>
+    </a>`).join('');
+
+  /* ---------- EDIT HERE: price list (½ kg) from the shop's menu card ---------- */
+  const MENU = {
+    "Cream Cakes": [
+      ["Red Velvet Cake",500],["Red Velvet Cake","550","with cheese frosting"],["Kit Kat Cake",750],
+      ["Orange Chocolate Cake",450],["Butterscotch Cake",450],["Strawberry Cake",450],["Rose Milk Cake",450],
+      ["Mango Cake",450],["Pineapple Cake",450],["Pistachios Cake",550],["Badam Cake",550],
+      ["Lotus Biscoff Cake",550],["Vanilla Cake",450]],
+    "Chocolate & Special": [
+      ["Chocolate Cake",450],["Choconuts Cake",500],["Chocolate Truffle Cake",500],["Oreo Chocolate Cake",500],
+      ["Belgian Chocolate Cake",650],["Black Forest Cake",500],["White Forest Cake",500],["Spanish Delight Cake",600],
+      ["Vancho Cake",550],["Nutty Bubble Cake",550],["Tender Coconut Cake",500],["Fresh Fruit Cake",600]],
+  };
+  const label = i => i[0] + (i[2] ? ` (${i[2]})` : '');
+  document.getElementById('plCols').innerHTML = Object.entries(MENU).map(([cat, items]) => `
+    <div class="pl-col"><h4>${cat}<span>½ kg</span></h4>
+      ${items.map(i => `<div class="pl-row" data-flavour="${label(i)}"><span class="n">${i[0]}${i[2] ? `<small>${i[2]}</small>` : ''}</span><span class="dots"></span><span class="pr">₹${i[1]}</span></div>`).join('')}
+    </div>`).join('');
+  const flav = document.getElementById('flavour');
+  flav.innerHTML = '<option value="">Choose a flavour…</option>' + Object.entries(MENU).map(([cat, items]) =>
+    `<optgroup label="${cat}">${items.map(i => `<option value="${label(i)}" data-p="${i[1]}">${label(i)} · ₹${i[1]}</option>`).join('')}</optgroup>`).join('') +
+    '<option value="Custom / other">Custom / other</option>';
+  const hint = document.getElementById('priceHint');
+  flav.addEventListener('change', () => {
+    const o = flav.selectedOptions[0];
+    hint.style.display = o.dataset.p ? 'block' : 'none';
+    hint.innerHTML = o.dataset.p ? `💰 <b>${flav.value}</b>: ₹${o.dataset.p} for ½ kg. We'll confirm the final price for your size and design.` : '';
+  });
+  document.querySelectorAll('.pl-row').forEach(r => r.addEventListener('click', () => {
+    flav.value = r.dataset.flavour; flav.dispatchEvent(new Event('change'));
+    document.getElementById('order').scrollIntoView({behavior:'smooth'});
+  }));
+
+  /* ---------- EDIT HERE: category card prices (leave "" to show "On request") ---------- */
+  const PRICES = {
+    "Wedding Cake":       "",   // e.g. "₹1,800 / kg"
+    "Birthday Cake":      "₹450 / ½ kg",
+    "Kids Theme Cake":    "",
+    "Chocolate Cake":     "₹450 / ½ kg",
+    "Red Velvet & Cream": "₹450 / ½ kg",
+    "Brownies & Cookies": "",
+  };
+  document.querySelectorAll('.price').forEach(el => {
+    const p = PRICES[el.dataset.price];
+    el.innerHTML = p ? `<small>Starting from</small>${p}` : `<small>Price</small>On request`;
+  });
+
+  // Menu "Order" pre-selects the cake type
+  document.querySelectorAll('.ask').forEach(a => a.addEventListener('click', () => {
+    const sel = document.getElementById('type');
+    [...sel.options].forEach(o => { if (o.text === a.dataset.item) sel.value = o.text; });
+  }));
+
+  // Order form -> WhatsApp
+  document.getElementById('date').min = new Date().toISOString().split('T')[0];
+  document.getElementById('orderForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const text = `Hi Nancy Cake House! 🎂 I'd like to place an order.%0A%0A` +
+      [`*Name:* ${v('name')}`,`*Phone:* ${v('phone')}`,`*Cake:* ${v('type')}`,`*Size:* ${v('size')}`,
+       `*Date:* ${v('date')}`,`*Flavour:* ${v('flavour')||'-'}${flav.selectedOptions[0].dataset.p ? ' (₹'+flav.selectedOptions[0].dataset.p+' / ½ kg)' : ''}`,`*Details:* ${v('msg')||'-'}`]
+      .map(encodeURIComponent).join('%0A');
+    window.open(`https://wa.me/919942133578?text=${text}`, '_blank');
+  });
+
+  // Header shadow + reveal on scroll
+  const header = document.getElementById('top');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 30));
+  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('#menuList a').forEach(a => a.onclick = () => document.getElementById('menuList').classList.remove('open'));
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
