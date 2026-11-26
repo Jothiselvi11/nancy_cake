@@ -13,7 +13,7 @@ display_url: /
 logo_url: /images/logo.png
 
 media_folder: images/uploads   # where uploaded photos are saved in the repo
-public_folder: images/uploads  # how the website links to them
+public_folder: /images/uploads # how the website links to them (leading / so previews work in /admin)
 
 collections:
   - name: website

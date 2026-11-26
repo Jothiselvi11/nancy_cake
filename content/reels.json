@@ -2,32 +2,32 @@
   "reels": [
     {
       "link": "",
-      "cover": "images/insta-1.jpg",
+      "cover": "/images/insta-1.jpg",
       "caption": "3D car cake, every detail piped by hand 🚗"
     },
     {
       "link": "",
-      "cover": "images/insta-2.jpg",
+      "cover": "/images/insta-2.jpg",
       "caption": "Rainbow & butterflies for a first birthday 🌈🦋"
     },
     {
       "link": "",
-      "cover": "images/insta-3.jpg",
+      "cover": "/images/insta-3.jpg",
       "caption": "Our pretty-in-pink princess doll cake 👑"
     },
     {
       "link": "",
-      "cover": "images/insta-4.jpg",
+      "cover": "/images/insta-4.jpg",
       "caption": "Birthday cake with rose cupcakes for Appa 🌹"
     },
     {
       "link": "",
-      "cover": "images/insta-5.jpg",
+      "cover": "/images/insta-5.jpg",
       "caption": "A Cinderella gown made of buttercream ✨"
     },
     {
       "link": "",
-      "cover": "images/insta-6.jpg",
+      "cover": "/images/insta-6.jpg",
       "caption": "Lavender buttercream cake for Mum 💜"
     }
   ]
