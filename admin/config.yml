@@ -1,0 +1,63 @@
+# Admin page settings (Decap CMS). The client signs in at yoursite/admin with GitHub.
+# Each "Publish" saves a commit to the repo and Netlify updates the live site in about a minute.
+backend:
+  name: github
+  repo: Jothiselvi11/nancy_cake
+  branch: main
+  commit_messages:
+    update: "Website update: {{collection}}"
+    uploadMedia: "Upload photo {{path}}"
+
+site_url: /
+display_url: /
+logo_url: /images/logo.png
+
+media_folder: images/uploads   # where uploaded photos are saved in the repo
+public_folder: images/uploads  # how the website links to them
+
+collections:
+  - name: website
+    label: Update Website
+    editor: { preview: false }
+    files:
+      - name: gallery
+        label: "🎂 Our Creations (cake photos)"
+        file: content/gallery.json
+        fields:
+          - name: photos
+            label: Cake photos
+            label_singular: cake photo
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: "{{fields.caption}}"
+            hint: "Tap 'Add cake photo' and the new photo goes to the top. The website shows the newest 24 photos, so older ones drop off by themselves. To hide one, delete it here."
+            fields:
+              - { name: image, label: Photo, widget: image, choose_url: false }
+              - { name: caption, label: Caption, widget: string, hint: "e.g. Butterfly birthday cake" }
+              - name: category
+                label: Category
+                widget: select
+                default: celebration
+                options:
+                  - { label: "Wedding & Love", value: love }
+                  - { label: "Celebration", value: celebration }
+                  - { label: "Kids", value: kids }
+                  - { label: "Chocolate", value: chocolate }
+
+      - name: reels
+        label: "🎬 Instagram reels"
+        file: content/reels.json
+        fields:
+          - name: reels
+            label: Reels
+            label_singular: reel
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: "{{fields.caption}}"
+            hint: "The website shows the newest 6 reels. On Instagram, open the reel, tap ⋯ / Share, then 'Copy link' and paste it here."
+            fields:
+              - { name: link, label: Reel link, widget: string, required: false, hint: "Paste the link from Instagram, e.g. https://www.instagram.com/reel/ABC123/" }
+              - { name: cover, label: Cover photo (optional), widget: image, required: false, choose_url: false, hint: "Leave empty to show the reel's own Instagram player." }
+              - { name: caption, label: Caption, widget: string, required: false }

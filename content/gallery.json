@@ -1,0 +1,124 @@
+{
+  "photos": [
+    {
+      "image": "images/cake-1.jpg",
+      "caption": "Two-tier wedding cake with gold hearts",
+      "category": "love"
+    },
+    {
+      "image": "images/cake-4.jpg",
+      "caption": "Pastel butterfly two-tier cake",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-13.jpg",
+      "caption": "Pink princess doll cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-22.jpg",
+      "caption": "Chocolate overload cake",
+      "category": "chocolate"
+    },
+    {
+      "image": "images/cake-2.jpg",
+      "caption": "Red velvet heart anniversary cake",
+      "category": "love"
+    },
+    {
+      "image": "images/cake-5.jpg",
+      "caption": "Lavender buttercream cake for Mum",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-14.jpg",
+      "caption": "Cinderella doll cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-23.jpg",
+      "caption": "Chocolate heart drip cake",
+      "category": "chocolate"
+    },
+    {
+      "image": "images/cake-3.jpg",
+      "caption": "\"Lovable wife\" heart cake & cupcakes",
+      "category": "love"
+    },
+    {
+      "image": "images/cake-6.jpg",
+      "caption": "Floral \"love you\" mini tier cake",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-15.jpg",
+      "caption": "Frozen theme cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-24.jpg",
+      "caption": "Two-layer fudge brownie cake",
+      "category": "chocolate"
+    },
+    {
+      "image": "images/cake-7.jpg",
+      "caption": "Butterfly birthday cake",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-16.jpg",
+      "caption": "Paw Patrol two-tier cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-8.jpg",
+      "caption": "Lavender garden painted cake",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-17.jpg",
+      "caption": "Cars & clouds two-tier cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-9.jpg",
+      "caption": "Red velvet with gold butterflies",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-18.jpg",
+      "caption": "Spider-Man two-tier cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-10.jpg",
+      "caption": "Enchanted forest tree-stump cake",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-19.jpg",
+      "caption": "3D racing car cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-11.jpg",
+      "caption": "Birthday cake with rose cupcakes",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-20.jpg",
+      "caption": "Jungle safari photo cake",
+      "category": "kids"
+    },
+    {
+      "image": "images/cake-12.jpg",
+      "caption": "Retirement cake with fondant figure",
+      "category": "celebration"
+    },
+    {
+      "image": "images/cake-21.jpg",
+      "caption": "Anime theme chocolate cake",
+      "category": "kids"
+    }
+  ]
+}
