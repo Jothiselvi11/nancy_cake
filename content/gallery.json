@@ -1,6 +1,11 @@
 {
   "photos": [
     {
+      "category": "celebration",
+      "image": "/images/uploads/1000281112.png",
+      "caption": "Fudgy Brownie Slab "
+    },
+    {
       "image": "/images/cake-1.jpg",
       "caption": "Two-tier wedding cake with gold hearts",
       "category": "love"
